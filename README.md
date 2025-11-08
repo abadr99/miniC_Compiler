@@ -12,7 +12,7 @@
 **✅ Tasks:**
 
 * [ ] Install **LLVM** (`sudo apt install llvm-dev clang libclang-dev`)
-* [ ] Install **ANTLR4** (`wget antlr-4.13.1-complete.jar`)
+* [ ] Install **ANTLR4** (`wget https://www.antlr.org/download/antlr-4.13.1-complete.jar`)
 * [ ] Set aliases:
 
   ```bash
@@ -211,3 +211,5 @@ Output:
 ✅ Ready-to-show GitHub portfolio project
 
 ---
+## TODOS
+-[ ] Allow compiling with `clang`
