@@ -57,7 +57,7 @@ include_directories(
     ${LLVM_INCLUDE_DIRS}
     )
 
-    add_executable(miniC ${SRC_FILES} ${DEV_MAIN_DIR}/src/main.cc)
+add_executable(miniC ${SRC_FILES} ${DEV_MAIN_DIR}/src/main.cc)
 
 # --- Link LLVM ---
 llvm_map_components_to_libnames(llvm_libs

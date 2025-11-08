@@ -2,7 +2,7 @@
 #include <string>
 #include "compiler_options.h"
 
-using namespace minic::options;
+using namespace minic::utils;
 
 CompilerOptions::CompilerOptions()
     : verbose_(false),
@@ -23,7 +23,7 @@ void CompilerOptions::ParseCommandLine(int argc, char** argv) {
             emit_LLVM_ = true;
         } else if (arg == "--emit-asm") {
             emit_ASM_ = true;
-        } else if (arg == "--use-jit") {
+        } else if (arg == "--jit") {
             use_JIT_ = true;
         } else if (arg == "--input" && i + 1 < argc) {
             input_file_ = argv[++i];

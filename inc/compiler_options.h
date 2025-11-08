@@ -2,7 +2,7 @@
 #define  INC_COMPILEROPTION_H
 
 namespace minic {
-namespace options{
+namespace utils{
 
   class CompilerOptions {
     public:
