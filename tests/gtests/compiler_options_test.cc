@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "compiler_options.h"
+#include "utils/compiler_options.h"
 
 using namespace minic::utils;
 

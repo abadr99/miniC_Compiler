@@ -17,17 +17,19 @@ set(GRAMMAR_FILE ${DEV_MAIN_DIR}/grammar/MiniC.g4)
 set(ANTLR4_INCLUDE_DIR /usr/include/antlr4-runtime/)
 set(GENERATED_ANTLR_SRC_DIR ${BUILD_DIR}/generated)
 set(GTEST_MAIN_DIR ${DEV_MAIN_DIR}/tests/gtests)
+set(GRAMMAR_DIR ${DEV_MAIN_DIR}/grammar)
 
 # --- ANTLR4 setup ---
 # You must download antlr-4.13.1-complete.jar manually
-
 find_package(Java REQUIRED)
 include(ExternalProject)
 
 # Generate ANTLR files at build time
+# FIXME: Fix the output path as file are generated in the grammar directory
 add_custom_command(
     OUTPUT ${GENERATED_ANTLR_SRC_DIR}/MiniCParser.cpp ${GENERATED_ANTLR_SRC_DIR}/MiniCParser.cpp ${GENERATED_ANTLR_SRC_DIR}/MiniCLexer.cpp ${GENERATED_ANTLR_SRC_DIR}/MiniCLexer.h ${GENERATED_ANTLR_SRC_DIR}/MiniCVisitor.h
     COMMAND java -jar ${ANTLR_JAR} -Dlanguage=Cpp -visitor -o ${GENERATED_ANTLR_SRC_DIR} ${GRAMMAR_FILE}
+    WORKING_DIRECTORY ${GRAMMAR_DIR}
     DEPENDS ${GRAMMAR_FILE}
     COMMENT "Generating ANTLR4 parser files..."
 )
@@ -50,6 +52,7 @@ file(GLOB_RECURSE SRC_FILES
     )
     
 include_directories(
+    ${DEV_MAIN_DIR}/grammar
     ${DEV_MAIN_DIR}/inc
     ${GENERATED_ANTLR_SRC_DIR}
     ${ANTLR4_RUNTIME}
